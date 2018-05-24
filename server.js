@@ -11,6 +11,8 @@ app.use(express.static('public'));
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
+  var string=request.header('user-agent');
+  
   console.log(request.header('user-agent'));
 });
 
