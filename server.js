@@ -16,8 +16,7 @@ app.get("/", function (request, response) {
   arr=arr[1].split(')');
   var arrer=request.header('accept-language').split(',')
  var ip=request.header('x-forwarded-for').split(',')[0];
-  //console.log(arr[0]);
-  //console.log(arrer[0]);
+  
   response.json({"ipaddress":ip,"lang":arrer[0],"software":arr[0]});
 });
 
