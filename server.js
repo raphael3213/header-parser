@@ -10,14 +10,15 @@ app.use(express.static('public'));
 
 
 app.get("/", function (request, response) {
-  response.sendFile(__dirname + '/views/index.html');
+  
   var string=request.header('user-agent');
   var arr=string.split('(')
   arr=arr[1].split(')');
   var arrer=request.header('accept-language').split(',')
- console.log(request.connection);
+ var ip=request.header('x-forwarded-for').split(',')[0];
   //console.log(arr[0]);
   //console.log(arrer[0]);
+  response.json({"ipaddress":ip,"lang":arrer[0],"software":arr[0]});
 });
 
 
