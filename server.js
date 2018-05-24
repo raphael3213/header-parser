@@ -12,8 +12,12 @@ app.use(express.static('public'));
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
   var string=request.header('user-agent');
-  
-  console.log(request.header('user-agent'));
+  var arr=string.split('(')
+  arr=arr[1].split(')');
+  var arrer=request.header('accept-language').split(',')
+ console.log(request.connection);
+  //console.log(arr[0]);
+  //console.log(arrer[0]);
 });
 
 
